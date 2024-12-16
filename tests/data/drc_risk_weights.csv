@@ -1,0 +1,120 @@
+reg_name,risk_type,RWLabel,RiskWeightValue
+d457,JTD,corporates_A,0.03
+d457,JTD,corporates_AA,0.02
+d457,JTD,corporates_AAA,0.005
+d457,JTD,corporates_B,0.3
+d457,JTD,corporates_BA,0.15
+d457,JTD,corporates_BAA,0.06
+d457,JTD,corporates_BB,0.15
+d457,JTD,corporates_BBB,0.06
+d457,JTD,corporates_C,0.5
+d457,JTD,corporates_CA,0.5
+d457,JTD,corporates_CAA,0.5
+d457,JTD,corporates_CC,0.5
+d457,JTD,corporates_CCC,0.5
+d457,JTD,corporates_D,1
+d457,JTD,corporates_DEFAULTED,1
+d457,JTD,corporates_NORATING,0.15
+d457,JTD,corporates_UNRATED,0.15
+CRR2,JTD,corporates_A,0.03
+CRR2,JTD,corporates_AA,0.005
+CRR2,JTD,corporates_AAA,0.005
+CRR2,JTD,corporates_B,0.3
+CRR2,JTD,corporates_BA,0.15
+CRR2,JTD,corporates_BAA,0.06
+CRR2,JTD,corporates_BB,0.15
+CRR2,JTD,corporates_BBB,0.06
+CRR2,JTD,corporates_C,0.5
+CRR2,JTD,corporates_CA,0.5
+CRR2,JTD,corporates_CAA,0.5
+CRR2,JTD,corporates_CC,0.5
+CRR2,JTD,corporates_CCC,0.5
+CRR2,JTD,corporates_D,1
+CRR2,JTD,corporates_DEFAULTED,1
+CRR2,JTD,corporates_NORATING,0.15
+CRR2,JTD,corporates_UNRATED,0.15
+CRR2,JTD,corporates_CRR2_114,0
+CRR2,JTD,corporates_CRR2_115,0
+CRR2,JTD,corporates_CRR2_116,0
+CRR2,JTD,corporates_CRR2_117,0
+CRR2,JTD,corporates_CRR2_118,0
+d457,JTD,local governments and municipalities_A,0.03
+d457,JTD,local governments and municipalities_AA,0.02
+d457,JTD,local governments and municipalities_AAA,0.005
+d457,JTD,local governments and municipalities_B,0.3
+d457,JTD,local governments and municipalities_BA,0.15
+d457,JTD,local governments and municipalities_BAA,0.06
+d457,JTD,local governments and municipalities_BB,0.15
+d457,JTD,local governments and municipalities_BBB,0.06
+d457,JTD,local governments and municipalities_C,0.5
+d457,JTD,local governments and municipalities_CA,0.5
+d457,JTD,local governments and municipalities_CAA,0.5
+d457,JTD,local governments and municipalities_CC,0.5
+d457,JTD,local governments and municipalities_CCC,0.5
+d457,JTD,local governments and municipalities_D,1
+d457,JTD,local governments and municipalities_DEFAULTED,1
+d457,JTD,local governments and municipalities_NORATING,0.15
+d457,JTD,local governments and municipalities_UNRATED,0.15
+CRR2,JTD,local governments and municipalities_A,0.03
+CRR2,JTD,local governments and municipalities_AA,0.005
+CRR2,JTD,local governments and municipalities_AAA,0.005
+CRR2,JTD,local governments and municipalities_B,0.3
+CRR2,JTD,local governments and municipalities_BA,0.15
+CRR2,JTD,local governments and municipalities_BAA,0.06
+CRR2,JTD,local governments and municipalities_BB,0.15
+CRR2,JTD,local governments and municipalities_BBB,0.06
+CRR2,JTD,local governments and municipalities_C,0.5
+CRR2,JTD,local governments and municipalities_CA,0.5
+CRR2,JTD,local governments and municipalities_CAA,0.5
+CRR2,JTD,local governments and municipalities_CC,0.5
+CRR2,JTD,local governments and municipalities_CCC,0.5
+CRR2,JTD,local governments and municipalities_D,1
+CRR2,JTD,local governments and municipalities_DEFAULTED,1
+CRR2,JTD,local governments and municipalities_NORATING,0.15
+CRR2,JTD,local governments and municipalities_UNRATED,0.15
+CRR2,JTD,local governments and municipalities_CRR2_114,0
+CRR2,JTD,local governments and municipalities_CRR2_115,0
+CRR2,JTD,local governments and municipalities_CRR2_116,0
+CRR2,JTD,local governments and municipalities_CRR2_117,0
+CRR2,JTD,local governments and municipalities_CRR2_118,0
+d457,JTD,sovereigns_A,0.03
+d457,JTD,sovereigns_AA,0.02
+d457,JTD,sovereigns_AAA,0.005
+d457,JTD,sovereigns_B,0.3
+d457,JTD,sovereigns_BA,0.15
+d457,JTD,sovereigns_BAA,0.06
+d457,JTD,sovereigns_BB,0.15
+d457,JTD,sovereigns_BBB,0.06
+d457,JTD,sovereigns_C,0.5
+d457,JTD,sovereigns_CA,0.5
+d457,JTD,sovereigns_CAA,0.5
+d457,JTD,sovereigns_CC,0.5
+d457,JTD,sovereigns_CCC,0.5
+d457,JTD,sovereigns_D,1
+d457,JTD,sovereigns_DEFAULTED,1
+d457,JTD,sovereigns_NORATING,0.15
+d457,JTD,sovereigns_UNRATED,0.15
+CRR2,JTD,sovereigns_A,0.03
+CRR2,JTD,sovereigns_AA,0.005
+CRR2,JTD,sovereigns_AAA,0.005
+CRR2,JTD,sovereigns_B,0.3
+CRR2,JTD,sovereigns_BA,0.15
+CRR2,JTD,sovereigns_BAA,0.06
+CRR2,JTD,sovereigns_BB,0.15
+CRR2,JTD,sovereigns_BBB,0.06
+CRR2,JTD,sovereigns_C,0.5
+CRR2,JTD,sovereigns_CA,0.5
+CRR2,JTD,sovereigns_CAA,0.5
+CRR2,JTD,sovereigns_CC,0.5
+CRR2,JTD,sovereigns_CCC,0.5
+CRR2,JTD,sovereigns_D,1
+CRR2,JTD,sovereigns_DEFAULTED,1
+CRR2,JTD,sovereigns_NORATING,0.15
+CRR2,JTD,sovereigns_UNRATED,0.15
+CRR2,JTD,sovereigns_CRR2_114,0
+CRR2,JTD,sovereigns_CRR2_115,0
+CRR2,JTD,sovereigns_CRR2_116,0
+CRR2,JTD,sovereigns_CRR2_117,0
+CRR2,JTD,sovereigns_CRR2_118,0
+CRR2,JTD,sovereigns_CRR2_119,0
+CRR2,JTD,sovereigns_CRR2_120,0
