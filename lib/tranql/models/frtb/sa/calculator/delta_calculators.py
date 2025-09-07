@@ -125,7 +125,7 @@ class CSRDeltaCalculator(DeltaVegaCalculator):
 
 class CSRSecDeltaCalculator(OtherBucketOverride, CSRDeltaCalculator):
     """
-    CSR Securitised non-CTP Delta shares the same intra-bucket correlation logic as the non securitised version, however
+    CSR Securitized non-CTP Delta shares the same intra-bucket correlation logic as the non securitized version, however
     there is an additional subtlety when considering the inter-bucket correlation.
 
     Note that there is an 'Other' bucket.
