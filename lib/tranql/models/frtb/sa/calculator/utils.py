@@ -32,7 +32,7 @@ def explode_bucket_code(fn):
             result = fn(self, sensis, *args, **kwargs)
 
             if bucket_code_aggregation:
-                # BucketCode a requested dimension, but not applicable for this risk type (eg. RRAO) - default to N/A
+                # BucketCode a requested dimension, but not applicable for this risk type (e.g. RRAO) - default to N/A
                 return {k: df.assign(BucketCode='N/A') for k, df in result.items()}
             else:
                 return result

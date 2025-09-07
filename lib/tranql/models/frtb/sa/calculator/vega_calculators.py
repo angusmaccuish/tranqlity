@@ -1,4 +1,4 @@
-from typing import Dict, Union
+from typing import Dict, Optional
 
 import numpy as np
 import pandas as pd
@@ -40,7 +40,7 @@ class FXVegaCalculator(VegaCalculator):
         ws = data.groupby(by=['FRTBBucket', 'GroupID'], sort=False)['ws'].sum()
         return pd.DataFrame(np.stack(ws.to_numpy()), index=ws.index)
 
-    def rho_correlation_matrices(self, scenario: str, bucket: Union[str, None]) -> Dict:
+    def rho_correlation_matrices(self, scenario: str, bucket: Optional[str]) -> Dict:
         tenor1, tenor2 = 'Underlying1Value', 'Underlying2Value'
         rhos = self.rho_correlations(bucket=bucket, rows=tenor1, columns=tenor2)
         rho = rhos[scenario]
@@ -96,7 +96,7 @@ class IRVegaCalculator(VegaCalculator):
 
         return pd.DataFrame(out, index=df.index)
 
-    def rho_correlation_matrices(self, scenario: str, bucket: Union[str, None]) -> Dict:
+    def rho_correlation_matrices(self, scenario: str, bucket: Optional[str]) -> Dict:
         yield_index = [(bc2, bc) for bc2 in self.params['BucketCode2'] for bc in self.params['BucketCode']]
         basis_index = [('BASIS', bc) for bc in self.params['BucketCode']]
         inflation_index = [('INFLATION', bc) for bc in self.params['BucketCode']]

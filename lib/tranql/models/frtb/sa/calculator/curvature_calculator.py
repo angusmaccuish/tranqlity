@@ -1,4 +1,4 @@
-from typing import Dict, Union
+from typing import Dict, Optional
 
 import numpy as np
 import pandas as pd
@@ -116,7 +116,7 @@ class CurvatureCalculator(SBMCalculator):
 
         return df.assign(k=k, ss=ss, x=x)
 
-    def _rho_correlation(self, scenario: str, bucket: Union[str, None]) -> np.float64:
+    def _rho_correlation(self, scenario: str, bucket: Optional[str]) -> np.float64:
         rhos = self.rho_correlations(bucket=bucket, rows='Underlying1Value')
         rho = rhos[scenario]
         return rho.loc['Different']

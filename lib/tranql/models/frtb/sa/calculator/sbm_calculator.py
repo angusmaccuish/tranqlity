@@ -1,6 +1,6 @@
 from abc import abstractmethod, ABC
 from functools import cache
-from typing import Dict, Iterable, Tuple, Union
+from typing import Dict, Iterable, Optional, Tuple
 
 import numpy as np
 import pandas as pd
@@ -54,7 +54,7 @@ class SBMCalculator(Calculator):
     def net_weighted_sensis(self, data: pd.DataFrame) -> pd.DataFrame:
         """
         Aggregate the weighted sensis. At the very least this should be at the ('FRTBBucket', 'GroupID') level, but
-        most risk classes/type will require additional aggregation levels (eg. 'Underlying'). Depends on the axes
+        most risk classes/type will require additional aggregation levels (e.g. 'Underlying'). Depends on the axes
         required in the intra-bucket (rho) correlation calculation.
         :param data: the input DataFrame containing the weighted risk
         :return: indexed DataFrame containing the net (aggregated) weighted risk
@@ -152,10 +152,10 @@ class SBMCalculator(Calculator):
 
     @cache
     def rho_correlations(self,
-                         bucket: Union[None, str],
-                         rows: Union[str, Iterable],
-                         columns: Union[None, str, Iterable] = None,
-                         fill_value: Union[None, float] = None) -> Dict[str, pd.DataFrame]:
+                         bucket: Optional[str],
+                         rows: str | Iterable,
+                         columns: Optional[str | Iterable] = None,
+                         fill_value: Optional[float] = None) -> Dict[str, pd.DataFrame]:
         rhos = {}
 
         if bucket is not None:

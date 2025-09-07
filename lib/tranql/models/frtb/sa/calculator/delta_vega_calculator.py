@@ -1,7 +1,7 @@
 from abc import abstractmethod
 import pandas as pd
 import numpy as np
-from typing import Dict, Union
+from typing import Dict, Optional
 
 from .sbm_calculator import SBMCalculator
 
@@ -38,12 +38,12 @@ class DeltaVegaCalculator(SBMCalculator):
         return pd.DataFrame(np.stack(ws), index=ws.index) if self.has_term_structure else ws.to_frame()
 
     @abstractmethod
-    def rho_correlation_matrices(self, scenario: str, bucket: Union[str, None]) -> Dict:
+    def rho_correlation_matrices(self, scenario: str, bucket: Optional[str]) -> Dict:
         """
         Return a Dictionary of rho correlation matrices, suitable for use in the linear correlation algorithm.
         Each matrix has an associated set of aggregation levels, which are the keys in the Dictionary.
         If there is no aggregation level other than the bucket itself, the key should be None. For the vanilla
-        case where rho depends only on the underlying and one addition axis (eg tenor), then the Dictionary would be
+        case where rho depends only on the underlying and one addition axis (e.g. tenor), then the Dictionary would be
         {'Underlying': rho_s - rho_d, None: rho_d}, where rho_s, rho_d are the rho matrices for the same, different
         underlying, respectively.
         :param scenario: low, medium or high
@@ -241,7 +241,7 @@ class VegaCalculator(DeltaVegaCalculator):
     # Vega always has term structure ie the option maturity dates
     has_term_structure = True
 
-    def rho_correlation_matrices(self, scenario: str, bucket: Union[str, None]) -> Dict:
+    def rho_correlation_matrices(self, scenario: str, bucket: Optional[str]) -> Dict:
         """
         Default rho correlation matrices - tenor-tenor correlation for same/different underlying name.
         Suitable for use in the linear correlation algorithm.

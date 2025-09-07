@@ -56,7 +56,7 @@ class Calculator(ABC):
     @abstractmethod
     def calculate_levels(self, sensis: pd.DataFrame) -> Dict:
         """
-        This is where virtually all of the computation is done
+        This is where virtually all the computation is done
         :param sensis: the input DataFrame
         :return: Dictionary of results, DataFrames keyed on level ('total' and/or 'bucket')
         """

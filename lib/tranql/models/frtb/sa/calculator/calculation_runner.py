@@ -1,4 +1,4 @@
-from typing import Dict, Optional, Union
+from typing import Dict, Optional
 
 import pandas as pd
 from tranql.models.frtb.sa.config.regulation_params import reg_params
@@ -13,7 +13,7 @@ def calculate(sensis: pd.DataFrame,
               run_params: Optional[Dict] = None,
               calc_params: Optional[pd.DataFrame] = pd.DataFrame(),
               seniority_ranking: Optional[pd.DataFrame] = pd.DataFrame(),
-              charge_only: Optional[bool] = False) -> Union[Dict, pd.DataFrame]:
+              charge_only: Optional[bool] = False) -> Dict | pd.DataFrame:
 
     # CalcName parameter used to find appropriate calculator
     calculator_name = run_params.get('CalcName')

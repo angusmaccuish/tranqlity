@@ -1,4 +1,4 @@
-from typing import Dict, Union
+from typing import Dict, Optional
 
 import numpy as np
 import pandas as pd
@@ -29,7 +29,7 @@ class CMDeltaCalculator(DeltaVegaCalculator):
         ws = data.groupby(by=agg_cols, sort=False)['ws'].sum()
         return pd.DataFrame(np.stack(ws), index=ws.index)
 
-    def rho_correlation_matrices(self, scenario: str, bucket: Union[str, None]) -> Dict:
+    def rho_correlation_matrices(self, scenario: str, bucket: Optional[str]) -> Dict:
         name, tenor, location = 'Underlying1Value', 'Underlying2Value', 'Underlying3Value'
         rhos = self.rho_correlations(bucket=bucket, rows=(name, tenor), columns=location)
         rho = rhos[scenario]
@@ -90,7 +90,7 @@ class CSRDeltaCalculator(DeltaVegaCalculator):
 
         return pd.DataFrame(out, index=df.index)
 
-    def rho_correlation_matrices(self, scenario: str, bucket: Union[str, None]) -> Dict:
+    def rho_correlation_matrices(self, scenario: str, bucket: Optional[str]) -> Dict:
         name, tenor, basis = 'Underlying1Value', 'Underlying2Value', 'Underlying3Value'
         rhos = self.rho_correlations(bucket=bucket, rows=(name, tenor), columns=basis)
         rho = rhos[scenario]
@@ -153,7 +153,7 @@ class EQDeltaCalculator(DeltaVegaCalculator):
         df = ws.unstack(level='RiskFactorType', fill_value=0.0)
         return df.reindex(columns=['SPOT', 'REPO'], fill_value=0.0)
 
-    def rho_correlation_matrices(self, scenario: str, bucket: Union[str, None]) -> Dict:
+    def rho_correlation_matrices(self, scenario: str, bucket: Optional[str]) -> Dict:
         name, basis = 'Underlying1Value', 'Underlying2Value'
         rhos = self.rho_correlations(bucket=bucket, rows=name, columns=basis)
         rho = rhos[scenario]
@@ -185,7 +185,7 @@ class FXDeltaCalculator(DeltaVegaCalculator):
     def net_weighted_sensis(self, data: pd.DataFrame) -> pd.DataFrame:
         return data.groupby(by=['FRTBBucket', 'GroupID'], sort=False)[['ws']].sum()
 
-    def rho_correlation_matrices(self, scenario: str, bucket: Union[str, None]) -> Dict:
+    def rho_correlation_matrices(self, scenario: str, bucket: Optional[str]) -> Dict:
         pass
 
     def calc_intra_bucket(self, ws: pd.DataFrame, scenario: str) -> pd.DataFrame:
@@ -237,7 +237,7 @@ class IRDeltaCalculator(DeltaVegaCalculator):
 
         return pd.DataFrame(out, index=df.index)
 
-    def rho_correlation_matrices(self, scenario: str, bucket: Union[str, None]) -> Dict:
+    def rho_correlation_matrices(self, scenario: str, bucket: Optional[str]) -> Dict:
         name, tenor, risk_factor_type = 'Underlying1Value', 'Underlying2Value', 'Underlying3Value'
         rhos = self.rho_correlations(bucket=bucket, rows=(name, tenor), columns=risk_factor_type, fill_value=0.0)
         rho = rhos[scenario]
