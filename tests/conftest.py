@@ -1,26 +1,27 @@
 from pathlib import Path
+from typing import Callable, Optional
 
 import pandas as pd
 import pytest
 
 
-def get_regulation(request):
+def get_regulation(request) -> str:
     regulation_marker = request.node.get_closest_marker('regulation')
     return regulation_marker.args[0] if regulation_marker and regulation_marker.args else 'd457'
 
 
-def get_risk_type(request):
+def get_risk_type(request) -> str:
     risk_type_marker = request.node.get_closest_marker('risk_type')
     assert risk_type_marker and risk_type_marker.args
     return risk_type_marker.args[0]
 
 
-def load_csv(file):
+def load_csv(file) -> pd.DataFrame:
     return pd.read_csv(Path(__file__).parent / 'data' / file)
 
 
 @pytest.fixture
-def calculator_factory(request, risk_weights, correlations, seniority_ranking):
+def calculator_factory(request, risk_weights, correlations, seniority_ranking) -> Callable:
     def create(cls, **kwargs):
         default_kwargs = dict(reg_name=get_regulation(request),
                               risk_weights=risk_weights,
@@ -34,7 +35,7 @@ def calculator_factory(request, risk_weights, correlations, seniority_ranking):
 
 
 @pytest.fixture
-def risk_weights(request):
+def risk_weights(request) -> pd.DataFrame:
     risk_type = get_risk_type(request)
 
     if risk_type == 'JTD':
@@ -47,7 +48,7 @@ def risk_weights(request):
 
 
 @pytest.fixture
-def correlations(request):
+def correlations(request) -> Optional[pd.DataFrame]:
     risk_type = get_risk_type(request)
 
     if risk_type in ['JTD', 'RRAO']:
@@ -60,7 +61,7 @@ def correlations(request):
 
 
 @pytest.fixture
-def seniority_ranking(request):
+def seniority_ranking(request) -> Optional[pd.DataFrame]:
     risk_type = get_risk_type(request)
 
     if risk_type != 'JTD':
