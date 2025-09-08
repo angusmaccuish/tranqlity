@@ -11,16 +11,14 @@ def calculator(calculator_factory):
 
 @pytest.mark.risk_type('JTD')
 class TestDRCNonSecCalculator:
-    def test_calculate_levels(self, calculator: DRCNonSecCalculator):
-        sensis = pd.DataFrame({
-            'GroupID': [1],
-            'FRTBBucket': ['corporates'],
-            'ObligorId': ['ObligorA'],
-            'RWLabel': ['corporates_A'],
-            'DebtSeniority': ['SENIOR'],
-            'ShareType': ['NOTFUND'],
-            'ScaledGrossJTD': [100.0],
-        })
+    def test_calculate_levels(self, calculator: DRCNonSecCalculator, dataframe_builder):
+        sensis = dataframe_builder(
+            '+---------+------------+-----------+--------------+----------------+-----------+----------------+',
+            '| GroupID | FRTBBucket | ObligorId | RWLabel      | DebtSeniority  | ShareType | ScaledGrossJTD |',
+            '+---------+------------+-----------+--------------+----------------+-----------+----------------+',
+            '|       1 | corporates | ObligorA  | corporates_A | EQUITY         | NOTFUND   |           50.0 |',
+            '|       1 | corporates | ObligorA  | corporates_A | SENIOR SECURED | NOTFUND   |          100.0 |',
+            '+---------+------------+-----------+--------------+----------------+-----------+----------------+')
 
         result = calculator.calculate_levels(sensis=sensis)
 

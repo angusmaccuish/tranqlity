@@ -23,7 +23,7 @@ class DRCNonSecCalculator(Calculator):
         df = df.unstack('DebtSeniority', fill_value=0.0)
         missing = [col for col in df.columns if col not in seniority_ranking]
         assert not missing, f'The following have no seniority ranking: {missing}'
-        df = df.rename(columns=seniority_ranking).sort_index(axis=1)
+        df = df.sort_index(key=lambda idx: idx.map(seniority_ranking), axis=1)
 
         # Sum across all Debt Seniority columns to obtain net ScaledGrossJTD
         scaled_jtd = df.sum(axis=1)
