@@ -11,8 +11,8 @@ def calculator(calculator_factory):
 
 @pytest.mark.risk_type('JTD')
 class TestDRCNonSecCalculator:
-    def test_calculate_levels(self, calculator: DRCNonSecCalculator, dataframe_builder):
-        sensis = dataframe_builder(
+    def test_calculate_levels(self, calculator: DRCNonSecCalculator, table):
+        sensis = table.to_dataframe(
             '+---------+------------+-----------+--------------+----------------+-----------+----------------+',
             '| GroupID | FRTBBucket | ObligorId | RWLabel      | DebtSeniority  | ShareType | ScaledGrossJTD |',
             '+---------+------------+-----------+--------------+----------------+-----------+----------------+',

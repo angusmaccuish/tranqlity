@@ -43,7 +43,7 @@ def explode_bucket_code(fn):
 def reindex_group_ids(fn):
     @wraps(fn)
     def inner(self, sensis: pd.DataFrame, *args, **kwargs) -> Dict[str, pd.DataFrame]:
-        if 'GroupID' in sensis:
+        if 'GroupID' in sensis.columns:
             reverse_mapping = sensis['GroupID'].drop_duplicates().reset_index(drop=True).to_dict()
             index = {v: k for k, v in reverse_mapping.items()}
             results = fn(self, sensis.assign(GroupID=sensis['GroupID'].map(index)), *args, **kwargs)
