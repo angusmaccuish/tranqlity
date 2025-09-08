@@ -1,8 +1,8 @@
 from typing import Dict, Optional
 
 import pandas as pd
-from tranql.models.frtb.sa.config.regulation_params import reg_params
 
+from tranql.models.frtb.sa.config.regulation_params import reg_params
 from .calculator_mapping import calculator_mapping
 
 

@@ -1,5 +1,7 @@
+import io
+import re
 from pathlib import Path
-from typing import Callable, Optional
+from typing import Callable, Optional, List, Tuple
 
 import pandas as pd
 import pytest
@@ -68,3 +70,20 @@ def seniority_ranking(request) -> Optional[pd.DataFrame]:
         return None
 
     return load_csv('seniority_ranking.csv')
+
+
+@pytest.fixture
+def dataframe_builder() -> Callable:
+    ignore = re.compile(r'^\+(-+\+)+$')
+    start_or_end = re.compile(r'(^\|\s*|\s*\|$)')
+    sep = re.compile(r'\s*\|\s*')
+
+    def _build(*lines, index: Optional[str | List[str] | Tuple[str]] = None):
+        lines = [sep.sub(',', start_or_end.sub('', line)) for line in lines if not ignore.match(line)]
+        stream = io.StringIO('\n'.join(lines))
+        if index is not None:
+            index = [index] if isinstance(index, str) else list(index)
+        df = pd.read_csv(stream, low_memory=False, index_col=index)
+        return df
+
+    return _build

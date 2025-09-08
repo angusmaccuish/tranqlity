@@ -2,8 +2,8 @@ from abc import ABC, abstractmethod
 from typing import Dict, Optional
 
 import pandas as pd
-from tranql.models.frtb.sa.config.regulation_params import reg_params
 
+from tranql.models.frtb.sa.config.regulation_params import reg_params
 from .utils import explode_bucket_code, handle_risk_weight_measure, reindex_group_ids
 
 

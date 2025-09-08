@@ -1,7 +1,8 @@
 from abc import abstractmethod
-import pandas as pd
-import numpy as np
 from typing import Dict, Optional
+
+import numpy as np
+import pandas as pd
 
 from .sbm_calculator import SBMCalculator
 

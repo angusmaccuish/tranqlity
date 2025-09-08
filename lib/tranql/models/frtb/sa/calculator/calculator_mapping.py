@@ -1,11 +1,11 @@
-from .delta_calculators import CMDeltaCalculator, CSRDeltaCalculator, CSRSecDeltaCalculator
-from .delta_calculators import EQDeltaCalculator, FXDeltaCalculator, IRDeltaCalculator
-from .vega_calculators import CMVegaCalculator, CSRVegaCalculator, CSRSecVegaCalculator
-from .vega_calculators import EQVegaCalculator, FXVegaCalculator, IRVegaCalculator
 from .curvature_calculators import CMCurvatureCalculator, CSRCurvatureCalculator, CSRSecCurvatureCalculator
 from .curvature_calculators import EQCurvatureCalculator, FXCurvatureCalculator, IRCurvatureCalculator
+from .delta_calculators import CMDeltaCalculator, CSRDeltaCalculator, CSRSecDeltaCalculator
+from .delta_calculators import EQDeltaCalculator, FXDeltaCalculator, IRDeltaCalculator
 from .drc_calculator import DRCNonSecCalculator, DRCSecCalculator
 from .rrao_calculator import RRAOCalculator
+from .vega_calculators import CMVegaCalculator, CSRVegaCalculator, CSRSecVegaCalculator
+from .vega_calculators import EQVegaCalculator, FXVegaCalculator, IRVegaCalculator
 
 calculator_mapping = {
     'GIRR Delta': IRDeltaCalculator,
